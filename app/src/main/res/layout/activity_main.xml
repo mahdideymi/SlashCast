@@ -9,6 +9,7 @@
 
 
     <ImageView
+        android:contentDescription="@string/app_name"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/circle"
@@ -18,7 +19,8 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <com.slash.slashcast.customControls.CustomTextViewHeavy
+    <com.slash.slashcast.customControls.CustomTextViewMedium
+        android:id="@+id/slashMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,11 +29,21 @@
         app:layout_constraintTop_toTopOf="parent"
         android:text="/"
         android:textSize="@dimen/font_80"
-        android:textColor="@color/colorSlash"
-        android:layout_marginBottom="@dimen/size_5"
-        android:rotation="10"/>
+        android:textColor="@color/colorSlash" />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.ThreeBounce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:SpinKit_Color="@color/colorWhite"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/slashMain"
+        android:layout_marginTop="@dimen/size_70" />
 
     <com.slash.slashcast.customControls.CustomTextViewLight
+        android:id="@+id/versionCodeMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="version 1.0.0"
