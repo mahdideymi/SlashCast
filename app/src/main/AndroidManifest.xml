@@ -12,10 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".OtpActivity"></activity>
+        <activity android:name=".HomeActivity"></activity>
+        <activity
+            android:name=".OtpActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".EnterTel.EnterTelActivity"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"
+            tools:ignore="InnerclassSeparator" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

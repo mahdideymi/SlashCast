@@ -20,6 +20,6 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(this, EnterTelActivity.class));
                     this.finish();
                 }
-                , 3000);
+                , 1000);
     }
 }
