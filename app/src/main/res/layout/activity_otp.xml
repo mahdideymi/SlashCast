@@ -49,6 +49,42 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/hintOtp" />
 
+        <com.slash.slashcast.customControls.CustomTextViewMedium
+            android:id="@+id/otpErrEdt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/otpEdt"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="@dimen/size_5"
+            android:textSize="@dimen/font_14"
+            android:textColor="@color/colorRed"
+            android:visibility="gone"/>
+
+        <com.slash.slashcast.customControls.CustomTextViewMedium
+            android:id="@+id/otpCountDowner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_10"
+            android:text="۶۰ ثانیه تا دریافت کد جدید"
+            android:textColor="@color/colorInput"
+            android:textSize="@dimen/font_14"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/otpErrEdt" />
+
+        <com.slash.slashcast.customControls.CustomTextViewMedium
+            android:id="@+id/backToEnterTel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btnOtp"
+            android:layout_marginBottom="@dimen/size_20"
+            android:textColor="@color/colorInput"
+            android:text="تغییر شماره تلفن همراه"
+            android:textSize="@dimen/font_14"/>
+
         <com.slash.slashcast.customControls.CustomButtonMedium
             android:id="@+id/btnOtp"
             android:layout_width="match_parent"

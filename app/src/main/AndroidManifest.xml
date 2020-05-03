@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <service android:name=".service.OtpCounterService"/>
         <activity android:name=".HomeActivity"></activity>
         <activity
             android:name=".OtpActivity"

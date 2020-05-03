@@ -32,6 +32,7 @@ public class EnterTelActivity extends AppCompatActivity {
                 if (mobile.length() == 11 && (mobile.charAt(0) == '0' && mobile.charAt(1) == '9')) {
                     binding.edtErrEnterTel.setVisibility(View.GONE);
                     startActivity(new Intent(EnterTelActivity.this, OtpActivity.class));
+                    finish();
                 } else {
                     binding.edtErrEnterTel.setVisibility(View.VISIBLE);
                     binding.edtErrEnterTel.setText("شماره تلفن همراه را به درستی وارد نمایید");
