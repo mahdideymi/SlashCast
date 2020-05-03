@@ -4,7 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Toast;
+
+import com.slash.slashcast.customControls.CustomTextViewLight;
+import com.slash.slashcast.customControls.CustomTextViewMedium;
 
 public class Application extends android.app.Application {
 
@@ -29,6 +35,21 @@ public class Application extends android.app.Application {
         FONT_LIGHT = Typeface.createFromAsset(assetManager , "yekan_bakh_light.ttf");
         FONT_MEDIUM = Typeface.createFromAsset(assetManager , "yekan_bakh_medium.ttf");
 
+    }
+
+    public static void toast(String message){
+        toast(message , Toast.LENGTH_SHORT);
+    }
+
+    public static void toast(String message , int duration){
+        View view = INFLATER.inflate(R.layout.toast , null);
+        CustomTextViewMedium txtMessage = view.findViewById(R.id.toastMsg);
+        txtMessage.setText(message);
+        Toast toast = new Toast(context);
+        toast.setDuration(duration);
+        toast.setGravity(Gravity.BOTTOM , 0 , 250);
+        toast.setView(view);
+        toast.show();
     }
 
     public static Context getContext() {

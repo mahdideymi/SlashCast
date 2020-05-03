@@ -6,4 +6,5 @@
     <color name="colorInput">#8492a2</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorSlash">#b88888</color>
+    <color name="colorRed">#b71c1c</color>
 </resources>

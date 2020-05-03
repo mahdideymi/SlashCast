@@ -34,7 +34,7 @@
             android:textSize="@dimen/font_16"
             android:text="@string/enter_yout_tel"/>
 
-        <com.slash.slashcast.customControls.CustomEditTextLight
+        <com.slash.slashcast.customControls.CustomEditTextMedium
             android:id="@+id/edtEnterTel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,12 +42,24 @@
             android:layout_marginEnd="@dimen/size_30"
             app:layout_constraintTop_toBottomOf="@id/enterTxtEnterTel"
             android:layout_marginTop="@dimen/size_30"
-            android:hint="مثلا ۰۹۳۰۱۳۸۴۷۰۹"
+            android:hint="@string/enter_tel_input"
             android:textColorHint="@color/colorInput"
             android:background="@drawable/edt"
             android:inputType="number"
             android:padding="@dimen/size_10"
             android:textSize="@dimen/font_16"/>
+
+        <com.slash.slashcast.customControls.CustomTextViewMedium
+            android:id="@+id/edtErrEnterTel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="@id/edtEnterTel"
+            app:layout_constraintTop_toBottomOf="@id/edtEnterTel"
+            tools:text="تلفن همراه خود را به درستی وارد نمایید."
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/font_12"
+            android:layout_marginTop="@dimen/size_5"
+            android:visibility="invisible"/>
 
         <com.slash.slashcast.customControls.CustomButtonMedium
             android:id="@+id/continueEnterTel"

@@ -16,8 +16,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Handler handler = new Handler();
-        handler.postDelayed(() ->
-                startActivity(new Intent(this, EnterTelActivity.class))
-                ,3000);
+        handler.postDelayed(() -> {
+                    startActivity(new Intent(this, EnterTelActivity.class));
+                    this.finish();
+                }
+                , 3000);
     }
 }
