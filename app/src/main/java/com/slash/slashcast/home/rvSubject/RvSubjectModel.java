@@ -1,19 +1,20 @@
 package com.slash.slashcast.home.rvSubject;
 
+import com.slash.slashcast.home.rvChapter.RvChapterDetail;
 import com.slash.slashcast.home.rvChapter.RvChapterModel;
 
 import java.util.ArrayList;
 
 public class RvSubjectModel {
     private String Title;
-    private ArrayList<RvChapterModel> chapterList;
-    private int id;
+    private ArrayList<RvChapterDetail> chapterList;
 
-    public RvSubjectModel(String title, ArrayList<RvChapterModel> chapterList, int id) {
+    public RvSubjectModel(String title, ArrayList<RvChapterDetail> chapterList) {
         Title = title;
         this.chapterList = chapterList;
-        this.id = id;
     }
+
+
 
     public String getTitle() {
         return Title;
@@ -23,19 +24,11 @@ public class RvSubjectModel {
         Title = title;
     }
 
-    public ArrayList<RvChapterModel> getChapterList() {
+    public ArrayList<RvChapterDetail> getChapterList() {
         return chapterList;
     }
 
-    public void setChapterList(ArrayList<RvChapterModel> chapterList) {
+    public void setChapterList(ArrayList<RvChapterDetail> chapterList) {
         this.chapterList = chapterList;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }

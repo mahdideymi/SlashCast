@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="post"
             type="com.slash.slashcast.home.rvChapter.RvChapterDetail" />
@@ -12,22 +13,52 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/size_20"
         android:layoutDirection="ltr"
-        android:layout_marginBottom="@dimen/size_20">
+        android:orientation="vertical">
 
-        <com.slash.slashcast.customControls.CustomTextViewHeavy
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Android Programmers"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/font_16"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/subjectHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.slash.slashcast.customControls.CustomTextViewHeavy
+                android:id="@+id/subjectTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/font_16"
+                tools:text="Android Programmers"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/subjectMoreIcon"
+                android:layout_width="@dimen/size_25"
+                android:layout_height="@dimen/size_25"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/subjectTitle"
+                app:layout_constraintBottom_toBottomOf="@id/subjectTitle"
+                android:src="@drawable/ic_arrow_right"
+                android:layout_marginRight="@dimen/size_10"/>
+
+            <com.slash.slashcast.customControls.CustomTextViewMedium
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@id/subjectMoreIcon"
+                app:layout_constraintTop_toTopOf="@id/subjectTitle"
+                app:layout_constraintBottom_toBottomOf="@id/subjectTitle"
+                android:text="More"
+                android:layout_marginRight="@dimen/size_5"
+                android:textSize="@dimen/font_14"
+                android:textColor="@color/colorAccent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/subjectRv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/size_10"
-            />
+            android:layout_marginTop="@dimen/size_10" />
     </LinearLayout>
 
 </layout>

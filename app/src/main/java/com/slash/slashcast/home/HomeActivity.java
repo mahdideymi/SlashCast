@@ -17,6 +17,8 @@ import com.slash.slashcast.home.rvChapter.RvChapterAd;
 import com.slash.slashcast.home.rvChapter.RvChapterAdapter;
 import com.slash.slashcast.home.rvChapter.RvChapterDetail;
 import com.slash.slashcast.home.rvChapter.RvChapterViewModel;
+import com.slash.slashcast.home.rvSubject.RvSubjectAdapter;
+import com.slash.slashcast.home.rvSubject.RvSubjectModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     private RvChapterViewModel rvChapterViewModel;
     RvChapterAdapter rvChapterAdapter;
+    RvSubjectAdapter rvSubjectAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,19 +45,30 @@ public class HomeActivity extends AppCompatActivity {
 //                .skipMemoryCache(true)
                 .placeholder(R.drawable.btn).dontAnimate().into(avatar);
 
+        rvChapterAdapter = new RvChapterAdapter();
+
         recyclerView = binding.rvHome;
         rvChapterViewModel = ViewModelProviders.of(this).get(RvChapterViewModel.class);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         recyclerView.setHasFixedSize(true);
-        rvChapterAdapter = new RvChapterAdapter();
-        recyclerView.setAdapter(rvChapterAdapter);
         getAllChapters();
+        rvSubjectAdapter = new RvSubjectAdapter();
+        recyclerView.setAdapter(rvSubjectAdapter);
 
     }
 
     private void getAllChapters() {
         rvChapterViewModel.getAllChapter().observe(this, rvChapterDetails -> {
             rvChapterAdapter.setChapterList((ArrayList<RvChapterDetail>) rvChapterDetails);
+            ArrayList<RvSubjectModel> subjectList = new ArrayList<>();
+            String[] title = new String[] {
+                    "Newest","Free","Popular","Most visited"
+            };
+            for (int i = 0; i < 4; i++) {
+                RvSubjectModel model = new RvSubjectModel(title[i],(ArrayList<RvChapterDetail>) rvChapterDetails);
+                subjectList.add(model);
+            }
+            rvSubjectAdapter.setList(subjectList);
         });
     }
 }

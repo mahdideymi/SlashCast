@@ -3,75 +3,79 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        android:paddingTop="@dimen/size_10"
-        android:paddingLeft="@dimen/size_10"
-        android:paddingBottom="@dimen/size_10"
-        tools:context=".home.HomeActivity">
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/profileLytHome"
-            android:layout_width="@dimen/size_40"
-            android:layout_height="@dimen/size_40"
-            app:cardCornerRadius="@dimen/size_8"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite"
+            android:paddingLeft="@dimen/size_10"
+            android:paddingTop="@dimen/size_10"
+            tools:context=".home.HomeActivity">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profileLytHome"
+                android:layout_width="@dimen/size_40"
+                android:layout_height="@dimen/size_40"
+                app:cardCornerRadius="@dimen/size_8"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/profileSrcHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter" />
+
+            </androidx.cardview.widget.CardView>
+
+            <com.slash.slashcast.customControls.CustomTextViewHeavy
+                android:id="@+id/profileNameHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_8"
+                android:text="Hi Nazanin"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintBottom_toBottomOf="@id/profileLytHome"
+                app:layout_constraintLeft_toRightOf="@id/profileLytHome"
+                app:layout_constraintTop_toTopOf="@id/profileLytHome" />
 
             <ImageView
-                android:id="@+id/profileSrcHome"
+                android:id="@+id/searchHome"
+                android:layout_width="@dimen/size_25"
+                android:layout_height="@dimen/size_25"
+                android:layout_marginRight="@dimen/size_10"
+                android:src="@drawable/ic_search"
+                app:layout_constraintBottom_toBottomOf="@id/profileLytHome"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/profileLytHome" />
+
+            <ImageView
+                android:id="@+id/categoryHome"
+                android:layout_width="@dimen/size_25"
+                android:layout_height="@dimen/size_25"
+                android:layout_marginRight="@dimen/size_8"
+                android:src="@drawable/ic_category"
+                app:layout_constraintBottom_toBottomOf="@id/profileLytHome"
+                app:layout_constraintRight_toLeftOf="@id/searchHome"
+                app:layout_constraintTop_toTopOf="@id/profileLytHome" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvHome"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter" />
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/size_10"
+                android:descendantFocusability="blocksDescendants"
+                android:layoutDirection="ltr"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profileLytHome" />
 
-        </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.slash.slashcast.customControls.CustomTextViewHeavy
-            android:id="@+id/profileNameHome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/size_8"
-            android:text="Hi Nazanin"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/font_16"
-            app:layout_constraintBottom_toBottomOf="@id/profileLytHome"
-            app:layout_constraintLeft_toRightOf="@id/profileLytHome"
-            app:layout_constraintTop_toTopOf="@id/profileLytHome" />
-
-        <ImageView
-            android:id="@+id/searchHome"
-            android:layout_width="@dimen/size_25"
-            android:layout_height="@dimen/size_25"
-            android:layout_marginRight="@dimen/size_10"
-            android:alpha="0.6"
-            android:src="@drawable/ic_search"
-            app:layout_constraintBottom_toBottomOf="@id/profileLytHome"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/profileLytHome" />
-
-        <ImageView
-            android:id="@+id/categoryHome"
-            android:layout_width="@dimen/size_25"
-            android:layout_height="@dimen/size_25"
-            android:layout_marginRight="@dimen/size_8"
-            android:alpha="0.6"
-            android:src="@drawable/ic_category"
-            app:layout_constraintBottom_toBottomOf="@id/profileLytHome"
-            app:layout_constraintRight_toLeftOf="@id/searchHome"
-            app:layout_constraintTop_toTopOf="@id/profileLytHome" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:descendantFocusability="blocksDescendants"
-            android:layoutDirection="ltr"
-            android:layout_marginTop="@dimen/size_20"
-            app:layout_constraintTop_toBottomOf="@id/profileLytHome" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    </ScrollView>-->
 
 </layout>

@@ -20,8 +20,7 @@ import java.util.ArrayList;
 public class RvChapterAdapter extends RecyclerView.Adapter<RvChapterAdapter.RvChapterViewHolder> {
 
     private ArrayList<RvChapterDetail> chapterList;
-    private String pic = "https://source.unsplash.com/1600x900/?nature,water";
-    private String[] pics = {"https://source.unsplash.com/1600x900/?nature,water"
+    private String[] pics = {"https://source.unsplash.com/100x100/?nature,water"
         , "https://source.unsplash.com/100x100/?face"
         , "https://source.unsplash.com/100x100/?life"
         , "https://source.unsplash.com/100x100/?home"
@@ -30,6 +29,14 @@ public class RvChapterAdapter extends RecyclerView.Adapter<RvChapterAdapter.RvCh
             , "https://source.unsplash.com/100x100/?home"
             , "https://source.unsplash.com/100x100/?water"
             , "https://source.unsplash.com/100x100/?nature"};
+
+    public RvChapterAdapter(ArrayList<RvChapterDetail> chapterList) {
+        this.chapterList = chapterList;
+    }
+
+    public RvChapterAdapter() {
+    }
+
     @NonNull
     @Override
     public RvChapterViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,10 +51,9 @@ public class RvChapterAdapter extends RecyclerView.Adapter<RvChapterAdapter.RvCh
         RvChapterDetail model = chapterList.get(position);
         holder.itemChapterBinding.setPost(model);
         Glide.with(Application.getContext())
-                .setDefaultRequestOptions(new RequestOptions())
                 .load(pics[position])
-                .skipMemoryCache(false)
                 .placeholder(R.drawable.btn)
+                .skipMemoryCache(false)
                 .into(holder.itemChapterBinding.chapterImage);
         if (position % 2 == 0)
             holder.itemChapterBinding.chapterMoneyIcon.setImageDrawable(
