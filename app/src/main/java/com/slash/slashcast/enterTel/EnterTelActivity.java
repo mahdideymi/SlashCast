@@ -1,16 +1,13 @@
-package com.slash.slashcast.EnterTel;
+package com.slash.slashcast.enterTel;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
-import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
-import com.slash.slashcast.Application;
-import com.slash.slashcast.OtpActivity;
+import com.slash.slashcast.otp.OtpActivity;
 import com.slash.slashcast.R;
 import com.slash.slashcast.databinding.ActivityEnterTelBinding;
 

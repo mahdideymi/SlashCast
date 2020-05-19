@@ -9,7 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
-import com.slash.slashcast.customControls.CustomTextViewLight;
+import androidx.multidex.MultiDex;
+
 import com.slash.slashcast.customControls.CustomTextViewMedium;
 
 public class Application extends android.app.Application {
@@ -50,6 +51,12 @@ public class Application extends android.app.Application {
         toast.setGravity(Gravity.BOTTOM , 0 , 250);
         toast.setView(view);
         toast.show();
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     public static Context getContext() {

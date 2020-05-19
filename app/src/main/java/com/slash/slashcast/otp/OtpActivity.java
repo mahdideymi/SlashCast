@@ -1,7 +1,6 @@
-package com.slash.slashcast;
+package com.slash.slashcast.otp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
 import android.annotation.SuppressLint;
@@ -13,7 +12,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.slash.slashcast.EnterTel.EnterTelActivity;
+import com.slash.slashcast.home.HomeActivity;
+import com.slash.slashcast.R;
+import com.slash.slashcast.enterTel.EnterTelActivity;
 import com.slash.slashcast.databinding.ActivityOtpBinding;
 import com.slash.slashcast.service.OtpCounterService;
 

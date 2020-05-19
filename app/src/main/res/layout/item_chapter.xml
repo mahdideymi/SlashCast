@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="post"
+            type="com.slash.slashcast.home.rvChapter.RvChapterDetail" />
+    </data>
+
+    <LinearLayout
+        android:layout_marginRight="@dimen/size_10"
+        android:layout_width="@dimen/size_100"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layoutDirection="ltr">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/size_100"
+            android:layout_height="@dimen/size_100"
+            app:cardCornerRadius="@dimen/size_10">
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:id="@+id/chapterImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/btn" />
+
+        </androidx.cardview.widget.CardView>
+
+        <com.slash.slashcast.customControls.CustomTextViewMedium
+            android:id="@+id/chapterTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/font_14"
+            tools:text="Create your startup"
+            android:text="@{post.name}"
+            android:gravity="left"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5">
+
+            <ImageView
+                android:id="@+id/chapterMoneyIcon"
+                android:layout_width="@dimen/size_15"
+                android:layout_height="@dimen/size_15"
+                android:src="@drawable/ic_music"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.slash.slashcast.customControls.CustomTextViewLight
+                android:id="@+id/chapterMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{post.year.toString()}"
+                android:textColor="@color/colorInput"
+                android:textSize="@dimen/font_12"
+                android:layout_marginRight="@dimen/size_5"
+                app:layout_constraintBottom_toBottomOf="@id/chapterMoneyIcon"
+                app:layout_constraintRight_toLeftOf="@id/chapterMoneyIcon"
+                app:layout_constraintTop_toTopOf="@id/chapterMoneyIcon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</layout>

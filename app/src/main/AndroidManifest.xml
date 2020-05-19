@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.slash.slashcast">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:name=".Application"
         android:allowBackup="true"
@@ -11,17 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <service android:name=".service.OtpCounterService"/>
-        <activity android:name=".HomeActivity"></activity>
+        tools:ignore="GoogleAppIndexingWarning"
+        android:usesCleartextTraffic="true">
+        <service android:name=".service.OtpCounterService" />
+        <activity android:name=".home.HomeActivity"/>
         <activity
-            android:name=".OtpActivity"
+            android:name=".otp.OtpActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".EnterTel.EnterTelActivity"
+            android:name=".enterTel.EnterTelActivity"
             android:windowSoftInputMode="adjustResize"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
