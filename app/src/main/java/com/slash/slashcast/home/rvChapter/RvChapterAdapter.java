@@ -16,6 +16,7 @@ import com.slash.slashcast.R;
 import com.slash.slashcast.databinding.ItemChapterBinding;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RvChapterAdapter extends RecyclerView.Adapter<RvChapterAdapter.RvChapterViewHolder> {
 
@@ -49,20 +50,16 @@ public class RvChapterAdapter extends RecyclerView.Adapter<RvChapterAdapter.RvCh
     @Override
     public void onBindViewHolder(@NonNull RvChapterViewHolder holder, int position) {
         RvChapterDetail model = chapterList.get(position);
+        Random random = new Random();
+        model.setYear(random.nextInt(15150));
         holder.itemChapterBinding.setPost(model);
         Glide.with(Application.getContext())
                 .load(pics[position])
                 .placeholder(R.drawable.btn)
                 .skipMemoryCache(false)
                 .into(holder.itemChapterBinding.chapterImage);
-        if (position % 2 == 0)
             holder.itemChapterBinding.chapterMoneyIcon.setImageDrawable(
-                        ContextCompat.getDrawable(Application.getContext(), R.drawable.ic_video)
-            );
-        else
-            holder.itemChapterBinding.chapterMoneyIcon.setImageDrawable(
-                        ContextCompat.getDrawable(Application.getContext(), R.drawable.ic_music)
-            );
+                        ContextCompat.getDrawable(Application.getContext(), R.drawable.ic_money));
 
     }
 

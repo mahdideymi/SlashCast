@@ -4,7 +4,7 @@
     package="com.slash.slashcast">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".Application"
@@ -14,10 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ProductActivity"></activity>
+
         <service android:name=".service.OtpCounterService" />
-        <activity android:name=".home.HomeActivity"/>
+
+        <activity android:name=".home.HomeActivity" />
         <activity
             android:name=".otp.OtpActivity"
             android:windowSoftInputMode="adjustResize" />
