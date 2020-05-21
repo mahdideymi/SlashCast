@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="producer"
+            type="com.slash.slashcast.home.rvProducer.RvProducerModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/producerImg"
+            android:layout_width="@dimen/size_65"
+            android:layout_height="@dimen/size_65"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background" />
+
+        <com.slash.slashcast.customControls.CustomTextViewLight
+            android:id="@+id/producerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_10"
+            android:text="@{producer.name}"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/font_14" />
+    </LinearLayout>
+</layout>

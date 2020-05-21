@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.bumptech.glide.Glide;
 import com.slash.slashcast.R;
@@ -18,6 +19,9 @@ import com.slash.slashcast.home.rvChapter.RvChapterViewModel;
 import com.slash.slashcast.home.rvHeader.RvHeaderAdapter;
 import com.slash.slashcast.home.rvHeader.RvHeaderModel;
 import com.slash.slashcast.home.rvHeader.RvHeaderViewModel;
+import com.slash.slashcast.home.rvProducer.RvProducerAdapter;
+import com.slash.slashcast.home.rvProducer.RvProducerModel;
+import com.slash.slashcast.home.rvProducer.RvProducerViewModel;
 import com.slash.slashcast.home.rvSubject.RvSubjectAdapter;
 import com.slash.slashcast.home.rvSubject.RvSubjectModel;
 
@@ -28,13 +32,16 @@ public class HomeActivity extends AppCompatActivity {
     ActivityHomeBinding binding;
     RecyclerView rvProduct;
     RecyclerView rvHeader;
+    RecyclerView rvProducer;
 
     private RvChapterViewModel rvChapterViewModel;
     private RvHeaderViewModel rvHeaderViewModel;
+    private RvProducerViewModel rvProducerViewModel;
 
     RvChapterAdapter rvChapterAdapter;
     RvHeaderAdapter rvHeaderAdapter;
     RvSubjectAdapter rvSubjectAdapter;
+    RvProducerAdapter rvProducerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +74,25 @@ public class HomeActivity extends AppCompatActivity {
         rvHeader.setHasFixedSize(true);
         rvHeader.setAdapter(rvHeaderAdapter);
 
+        rvProducer = binding.rvProducer;
+        rvProducerAdapter = new RvProducerAdapter();
+        rvProducerViewModel = ViewModelProviders.of(this).get(RvProducerViewModel.class);
+        rvProducer.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL , false));
+        rvProducer.setHasFixedSize(true);
+        rvProducer.setAdapter(rvProducerAdapter);
+
         getAllHeaders();
         getAllChapters();
+        getAllProducers();
 
 
 
+    }
+
+    private void getAllProducers() {
+        rvProducerViewModel.getProducers().observe(this, rvProducerModels -> {
+            rvProducerAdapter.setList((ArrayList<RvProducerModel>) rvProducerModels);
+        });
     }
 
     private void getAllHeaders() {
