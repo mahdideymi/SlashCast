@@ -11,16 +11,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RvChapterRepo {
+class RvChapterRepo {
 
     private ArrayList<RvChapterDetail> chapterList = new ArrayList<>();
     private MutableLiveData<List<RvChapterDetail>> mutableLiveData = new MutableLiveData<>();
 
-    public RvChapterRepo() {
+    RvChapterRepo() {
 
     }
 
-    public MutableLiveData<List<RvChapterDetail>> getMutableLiveData() {
+    MutableLiveData<List<RvChapterDetail>> getMutableLiveData() {
 
         final RvChapterService rvChapterService = RetroGenerator.getRetrofit("https://reqres.in").create(RvChapterService.class);
         Call<RvChapterModel> call = rvChapterService.getChapter();

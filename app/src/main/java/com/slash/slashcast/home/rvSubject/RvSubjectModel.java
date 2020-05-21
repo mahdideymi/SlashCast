@@ -1,20 +1,13 @@
 package com.slash.slashcast.home.rvSubject;
 
 import com.slash.slashcast.home.rvChapter.RvChapterDetail;
-import com.slash.slashcast.home.rvChapter.RvChapterModel;
+import com.slash.slashcast.home.rvHeader.RvHeaderModel;
 
 import java.util.ArrayList;
 
 public class RvSubjectModel {
     private String Title;
     private ArrayList<RvChapterDetail> chapterList;
-
-    public RvSubjectModel(String title, ArrayList<RvChapterDetail> chapterList) {
-        Title = title;
-        this.chapterList = chapterList;
-    }
-
-
 
     public String getTitle() {
         return Title;

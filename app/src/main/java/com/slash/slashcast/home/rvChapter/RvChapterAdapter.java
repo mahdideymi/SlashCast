@@ -1,7 +1,6 @@
 package com.slash.slashcast.home.rvChapter;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -10,7 +9,6 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.slash.slashcast.Application;
 import com.slash.slashcast.R;
 import com.slash.slashcast.databinding.ItemChapterBinding;

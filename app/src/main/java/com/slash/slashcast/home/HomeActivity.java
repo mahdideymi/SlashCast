@@ -5,7 +5,6 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,22 +12,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.slash.slashcast.R;
 import com.slash.slashcast.databinding.ActivityHomeBinding;
-import com.slash.slashcast.home.rvChapter.RvChapterAd;
 import com.slash.slashcast.home.rvChapter.RvChapterAdapter;
 import com.slash.slashcast.home.rvChapter.RvChapterDetail;
 import com.slash.slashcast.home.rvChapter.RvChapterViewModel;
+import com.slash.slashcast.home.rvHeader.RvHeaderAdapter;
+import com.slash.slashcast.home.rvHeader.RvHeaderModel;
+import com.slash.slashcast.home.rvHeader.RvHeaderViewModel;
 import com.slash.slashcast.home.rvSubject.RvSubjectAdapter;
 import com.slash.slashcast.home.rvSubject.RvSubjectModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
     ActivityHomeBinding binding;
-    RecyclerView recyclerView;
+    RecyclerView rvProduct;
+    RecyclerView rvHeader;
+
     private RvChapterViewModel rvChapterViewModel;
+    private RvHeaderViewModel rvHeaderViewModel;
+
     RvChapterAdapter rvChapterAdapter;
+    RvHeaderAdapter rvHeaderAdapter;
     RvSubjectAdapter rvSubjectAdapter;
 
     @Override
@@ -45,16 +50,34 @@ public class HomeActivity extends AppCompatActivity {
 //                .skipMemoryCache(true)
                 .placeholder(R.drawable.btn).dontAnimate().into(avatar);
 
-        rvChapterAdapter = new RvChapterAdapter();
 
-        recyclerView = binding.rvHome;
         rvChapterViewModel = ViewModelProviders.of(this).get(RvChapterViewModel.class);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        recyclerView.setHasFixedSize(true);
-        getAllChapters();
-        rvSubjectAdapter = new RvSubjectAdapter();
-        recyclerView.setAdapter(rvSubjectAdapter);
 
+        rvProduct = binding.rvHomeProduct;
+        rvChapterAdapter = new RvChapterAdapter();
+        rvProduct.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        rvProduct.setHasFixedSize(true);
+        rvSubjectAdapter = new RvSubjectAdapter();
+        rvProduct.setAdapter(rvSubjectAdapter);
+
+        rvHeader = binding.rvHomeHeader;
+        rvHeaderAdapter = new RvHeaderAdapter();
+        rvHeaderViewModel = ViewModelProviders.of(this).get(RvHeaderViewModel.class);
+        rvHeader.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+        rvHeader.setHasFixedSize(true);
+        rvHeader.setAdapter(rvHeaderAdapter);
+
+        getAllHeaders();
+        getAllChapters();
+
+
+
+    }
+
+    private void getAllHeaders() {
+        rvHeaderViewModel.getAllHeaders().observe(this , rvHeaderModels -> {
+            rvHeaderAdapter.setList((ArrayList<RvHeaderModel>) rvHeaderModels);
+        });
     }
 
     private void getAllChapters() {
@@ -65,7 +88,9 @@ public class HomeActivity extends AppCompatActivity {
                     "Newest","Free","Popular","Most visited"
             };
             for (int i = 0; i < 4; i++) {
-                RvSubjectModel model = new RvSubjectModel(title[i],(ArrayList<RvChapterDetail>) rvChapterDetails);
+                RvSubjectModel model = new RvSubjectModel();
+                model.setChapterList((ArrayList<RvChapterDetail>) rvChapterDetails);
+                model.setTitle(title[i]);
                 subjectList.add(model);
             }
             rvSubjectAdapter.setList(subjectList);

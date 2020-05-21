@@ -6,8 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.slash.slashcast.R;
-
 import java.util.List;
 
 public class RvChapterViewModel extends AndroidViewModel {

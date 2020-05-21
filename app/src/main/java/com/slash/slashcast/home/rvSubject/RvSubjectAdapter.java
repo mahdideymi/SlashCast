@@ -1,6 +1,5 @@
 package com.slash.slashcast.home.rvSubject;
 
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +17,9 @@ import java.util.ArrayList;
 
 public class RvSubjectAdapter extends RecyclerView.Adapter<RvSubjectAdapter.RvSubjectViewHolder> {
 
-    ArrayList<RvSubjectModel> list;
+    private ArrayList<RvSubjectModel> list;
 
     public RvSubjectAdapter() {
-        this.list = list;
     }
 
     public void setList (ArrayList<RvSubjectModel> list) {
@@ -33,7 +31,7 @@ public class RvSubjectAdapter extends RecyclerView.Adapter<RvSubjectAdapter.RvSu
     @Override
     public RvSubjectViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(Application.getContext())
-                .inflate(R.layout.item_subject , parent , false);
+                    .inflate(R.layout.item_subject , parent , false);
         return new RvSubjectViewHolder(view);
     }
 
@@ -52,12 +50,13 @@ public class RvSubjectAdapter extends RecyclerView.Adapter<RvSubjectAdapter.RvSu
         return list != null ? list.size() : 0;
     }
 
+
     class RvSubjectViewHolder extends RecyclerView.ViewHolder {
 
         RecyclerView recyclerView;
         CustomTextViewHeavy textView;
 
-        public RvSubjectViewHolder(@NonNull View itemView) {
+        RvSubjectViewHolder(@NonNull View itemView) {
             super(itemView);
 
             recyclerView = itemView.findViewById(R.id.subjectRv);
