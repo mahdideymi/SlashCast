@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -84,8 +85,6 @@ public class HomeActivity extends AppCompatActivity {
         getAllHeaders();
         getAllChapters();
         getAllProducers();
-
-
 
     }
 
