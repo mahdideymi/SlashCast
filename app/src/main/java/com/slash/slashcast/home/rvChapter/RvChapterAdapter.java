@@ -19,18 +19,11 @@ import java.util.Random;
 public class RvChapterAdapter extends RecyclerView.Adapter<RvChapterAdapter.RvChapterViewHolder> {
 
     private ArrayList<RvChapterDetail> chapterList;
-    private String[] pics = {"https://source.unsplash.com/100x100/?nature,water"
-        , "https://source.unsplash.com/100x100/?face"
-        , "https://source.unsplash.com/100x100/?life"
-        , "https://source.unsplash.com/100x100/?home"
-        , "https://source.unsplash.com/100x100/?water"
-        , "https://source.unsplash.com/100x100/?nature"
-            , "https://source.unsplash.com/100x100/?home"
-            , "https://source.unsplash.com/100x100/?water"
-            , "https://source.unsplash.com/100x100/?nature"};
+    private String[] pics = new String[6];
 
-    public RvChapterAdapter(ArrayList<RvChapterDetail> chapterList) {
+    public RvChapterAdapter(ArrayList<RvChapterDetail> chapterList, String[] pics) {
         this.chapterList = chapterList;
+        this.pics = pics;
     }
 
     public RvChapterAdapter() {
@@ -53,7 +46,7 @@ public class RvChapterAdapter extends RecyclerView.Adapter<RvChapterAdapter.RvCh
         holder.itemChapterBinding.setPost(model);
         Glide.with(Application.getContext())
                 .load(pics[position])
-                .placeholder(R.drawable.btn)
+                .placeholder(R.drawable.placeholder)
                 .skipMemoryCache(false)
                 .into(holder.itemChapterBinding.chapterImage);
             holder.itemChapterBinding.chapterMoneyIcon.setImageDrawable(

@@ -19,6 +19,37 @@ public class RvSubjectAdapter extends RecyclerView.Adapter<RvSubjectAdapter.RvSu
 
     private ArrayList<RvSubjectModel> list;
 
+    //mock
+    private String[] pics = {"https://source.unsplash.com/100x100/?nature,water"
+            , "https://source.unsplash.com/100x100/?face"
+            , "https://source.unsplash.com/100x100/?life"
+            , "https://source.unsplash.com/100x100/?home"
+            , "https://source.unsplash.com/100x100/?water"
+            , "https://source.unsplash.com/100x100/?nature" };
+
+    private String[] pics1 = {"https://source.unsplash.com/100x100/?energy"
+            , "https://source.unsplash.com/100x100/?style"
+            , "https://source.unsplash.com/100x100/?fashion"
+            , "https://source.unsplash.com/100x100/?shirt"
+            , "https://source.unsplash.com/100x100/?friends"
+            , "https://source.unsplash.com/100x100/?free" };
+
+    private String[] pics2 = {"https://source.unsplash.com/100x100/?mom"
+            , "https://source.unsplash.com/100x100/?dad"
+            , "https://source.unsplash.com/100x100/?old"
+            , "https://source.unsplash.com/100x100/?art"
+            , "https://source.unsplash.com/100x100/?people"
+            , "https://source.unsplash.com/100x100/?city" };
+
+    private String[] pics3 = {"https://source.unsplash.com/100x100/?country"
+            , "https://source.unsplash.com/100x100/?ronaldo"
+            , "https://source.unsplash.com/100x100/?messi"
+            , "https://source.unsplash.com/100x100/?iran"
+            , "https://source.unsplash.com/100x100/?computer"
+            , "https://source.unsplash.com/100x100/?it" };
+
+
+
     public RvSubjectAdapter() {
     }
 
@@ -41,7 +72,22 @@ public class RvSubjectAdapter extends RecyclerView.Adapter<RvSubjectAdapter.RvSu
         holder.recyclerView.setLayoutManager(new LinearLayoutManager(Application.getContext()
                 , RecyclerView.HORIZONTAL, false));
         holder.recyclerView.setHasFixedSize(true);
-        holder.recyclerView.setAdapter(new RvChapterAdapter(list.get(position).getChapterList()));
+        switch (position){
+            case 0:
+                holder.recyclerView.setAdapter(new RvChapterAdapter(list.get(position).getChapterList(), pics));
+                break;
+            case 1:
+                holder.recyclerView.setAdapter(new RvChapterAdapter(list.get(position).getChapterList(), pics1));
+                break;
+            case 2:
+                holder.recyclerView.setAdapter(new RvChapterAdapter(list.get(position).getChapterList(), pics2));
+                break;
+            case 3:
+                holder.recyclerView.setAdapter(new RvChapterAdapter(list.get(position).getChapterList(), pics3));
+                break;
+            default:
+                break;
+        }
 
     }
 

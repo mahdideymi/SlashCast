@@ -44,13 +44,13 @@ public class RvHeaderAdapter extends RecyclerView.Adapter<RvHeaderAdapter.RvHead
         holder.itemHeaderHomeBinding.setHeader(model);
         Glide.with(Application.getContext())
                 .load(model.getPic())
-                .placeholder(R.drawable.btn)
+                .placeholder(R.drawable.placeholder)
                 .skipMemoryCache(false)
                 .into(holder.itemHeaderHomeBinding.itemHeaderImg);
 
         Glide.with(Application.getContext())
                 .load(model.getProfilePic())
-                .placeholder(R.drawable.btn)
+                .placeholder(R.drawable.placeholder)
                 .skipMemoryCache(false)
                 .into(holder.itemHeaderHomeBinding.itemHeaderProfileSrc);
     }

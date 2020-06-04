@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ProductActivity"></activity>
+        <activity android:name=".ProductActivity" />
 
         <service android:name=".service.OtpCounterService" />
 

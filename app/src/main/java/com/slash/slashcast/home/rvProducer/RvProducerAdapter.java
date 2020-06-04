@@ -36,7 +36,7 @@ public class RvProducerAdapter extends RecyclerView.Adapter<RvProducerAdapter.Rv
         holder.binding.setProducer(model);
         Glide.with(Application.getContext())
                 .load(model.getImg())
-                .placeholder(R.drawable.btn)
+                .placeholder(R.drawable.placeholder)
                 .skipMemoryCache(false)
                 .into(holder.binding.producerImg);
     }
