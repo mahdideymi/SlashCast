@@ -59,13 +59,19 @@ public class HomeActivity extends AppCompatActivity {
                 .centerCrop()
 //                .diskCacheStrategy(DiskCacheStrategy.NONE)
 //                .skipMemoryCache(true)
-                .placeholder(R.drawable.btn).dontAnimate().into(avatar);
+                .placeholder(R.drawable.placeholder).dontAnimate().into(avatar);
 
         avatar.setOnClickListener(view -> {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ProfileActivity profileActivity = new ProfileActivity();
             profileActivity.show(ft , "profile");
 
+        });
+
+        binding.profileNameHome.setOnClickListener(view -> {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ProfileActivity profileActivity = new ProfileActivity();
+            profileActivity.show(ft , "profile");
         });
 
 
